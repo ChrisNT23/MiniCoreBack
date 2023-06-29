@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 
-
 const app = express();
 const PORT = 5000;
 app.use(cors()); // Agrega esta línea para habilitar CORS
@@ -96,9 +95,6 @@ app.post('/buscar', async (req, res) => {
 });
 
 
-
-
-
 // Ruta para obtener todos los usuarios
 app.get('/usuarios', (req, res) => {
     Usuario.find()
@@ -149,4 +145,8 @@ app.post('/ventas', async (req, res) => {
 // Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto ${PORT}`);
+});
+
+app.get("/", (req, res) => {
+    res.send("La Api esta corriendo")
 });
